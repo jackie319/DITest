@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMP.MSMAccount.V4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsEmailValidated" Type="bit" Nullable="false" />
+    <Property Name="MobilePhone" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="IsMobilePhoneValidated" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountVisited" Type="int" Nullable="false" />
+    <Property Name="IPv4LastVisited" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="TimeCreated" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeLastVisited" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="BindingCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OwnerId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OwnerType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="IMPMSMAccountV4ModelStoreContainer">
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

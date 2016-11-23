@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IMPMSMAccountV4ModelStoreContainer" CdmEntityContainer="AccountEntities">
+    <EntitySetMapping Name="UserAccount">
+      <EntityTypeMapping TypeName="IMP.MSMAccount.V4Model.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsEmailValidated" ColumnName="IsEmailValidated" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="IsMobilePhoneValidated" ColumnName="IsMobilePhoneValidated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CountVisited" ColumnName="CountVisited" />
+          <ScalarProperty Name="IPv4LastVisited" ColumnName="IPv4LastVisited" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="TimeLastVisited" ColumnName="TimeLastVisited" />
+          <ScalarProperty Name="BindingCode" ColumnName="BindingCode" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="OwnerType" ColumnName="OwnerType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
