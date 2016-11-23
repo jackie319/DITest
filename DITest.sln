@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DITest.Web", "DITest.Web\DITest.Web.csproj", "{C0297647-C549-4BF0-B992-4D7082A1D9B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaoTwo", "DaoTwo\DaoTwo.csproj", "{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C0297647-C549-4BF0-B992-4D7082A1D9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0297647-C549-4BF0-B992-4D7082A1D9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0297647-C549-4BF0-B992-4D7082A1D9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
