@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -12,6 +13,7 @@ using Autofac.Integration.Mvc;
 using BLL;
 using JK.Framework.Core.Data;
 using JK.Framework.Data;
+using log4net.Config;
 
 namespace DITest
 {
@@ -25,6 +27,7 @@ namespace DITest
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterAutofac();
+            InitLog4Net();
         }
 
         public static void RegisterAutofac()
@@ -52,6 +55,12 @@ namespace DITest
 
         }
 
-    
+        private static void InitLog4Net()
+        {
+            var logCfg = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config");
+            XmlConfigurator.ConfigureAndWatch(logCfg);
+        }
+
+
     }
 }

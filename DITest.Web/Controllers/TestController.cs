@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BLL;
 using Dao.Model;
+using log4net;
+using log4net.Config;
 
 namespace DITest.Controllers
 {
@@ -15,6 +18,12 @@ namespace DITest.Controllers
         public TestController(IAccountService accountService)
         {
             AccouAccountService = accountService;
+        }
+
+        // GET: Test
+        public ActionResult Index()
+        {
+            return View();
         }
 
         public ActionResult Test()
@@ -59,10 +68,25 @@ namespace DITest.Controllers
             var account = AccouAccountService.FindNoCache(guid);
             return View("Find",account);
         }
-        // GET: Test
-        public ActionResult Index()
+
+        public ActionResult Log()
         {
-            return View();
+            string uid = "7E668467-AF64-45BE-9938-F5E1BAC9120D";
+            Guid guid = Guid.Parse(uid);
+            var account = AccouAccountService.FindNoCache(guid);
+
+            
+
+            var logger = LogManager.GetLogger(typeof(TestController));
+
+            logger.Info("消息");
+            logger.Warn("警告");
+            logger.Error("异常");
+            logger.Fatal("错误");
+            return View("Find",account);
         }
+  
+
+      
     }
 }
