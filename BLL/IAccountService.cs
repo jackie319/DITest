@@ -11,5 +11,11 @@ namespace BLL
      public interface IAccountService
      {
          void Add(UserAccount account);
+
+         IList<UserAccount> GetList();
+
+         UserAccount Find(Guid uid);
+
+         UserAccount FindNoCache(Guid uid);
      }
 }

@@ -40,6 +40,25 @@ namespace DITest.Controllers
             AccouAccountService.Add(account);
             return View();
         }
+
+        //数据缓存
+        public ActionResult Find()
+        {
+            string uid = "7E668467-AF64-45BE-9938-F5E1BAC9120D";
+            Guid guid = Guid.Parse(uid);
+            var account = AccouAccountService.Find(guid);
+            return View(account);
+        }
+
+        //页面缓存
+        [OutputCache(Duration = 60, NoStore = false)]
+        public ActionResult FindN()
+        {
+            string uid = "7E668467-AF64-45BE-9938-F5E1BAC9120D";
+            Guid guid = Guid.Parse(uid);
+            var account = AccouAccountService.FindNoCache(guid);
+            return View("Find",account);
+        }
         // GET: Test
         public ActionResult Index()
         {
