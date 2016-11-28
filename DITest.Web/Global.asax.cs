@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -28,6 +30,7 @@ namespace DITest
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterAutofac();
             InitLog4Net();
+            InitJKConfig();
         }
 
         public static void RegisterAutofac()
@@ -59,6 +62,11 @@ namespace DITest
         {
             var logCfg = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config");
             XmlConfigurator.ConfigureAndWatch(logCfg);
+        }
+
+        public static void InitJKConfig()
+        {
+         var configurationSection = ConfigurationManager.GetSection("JKConfig");
         }
 
 

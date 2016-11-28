@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BLL;
 using Dao.Model;
+using DITest.App_Start;
 using log4net;
 using log4net.Config;
 
@@ -85,6 +86,14 @@ namespace DITest.Controllers
             logger.Fatal("错误");
             return View("Find",account);
         }
+
+        public ActionResult GetConfig()
+        {
+            var db = JKConfigHandler.GetValue("test1");
+            UserAccount account = new UserAccount();
+            account.UserName = db;
+            return View("Find", account);
+        } 
   
 
       
