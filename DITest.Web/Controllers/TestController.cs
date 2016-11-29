@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BLL;
 using Dao.Model;
-using DITest.App_Start;
+using JK.Framework.Core.Config;
 using log4net;
 using log4net.Config;
 
