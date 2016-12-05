@@ -31,6 +31,7 @@ namespace BLL
             DbContext = dbContext.GetByName<IDbContext>("accountEntity");
             CacheManager = cacheManager;
         }
+
         public void Add(UserAccount account)
         {
             UserAccountRepository.Insert(account);
