@@ -73,7 +73,7 @@ namespace DITest
                .InstancePerLifetimeScope();
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().SingleInstance();
             builder.RegisterType<DbContextGetter>().As<IDbContextGetter>().SingleInstance();
-       
+
             builder.RegisterType<AccountServiceImpl>().As<IAccountService>().InstancePerHttpRequest(); //mvc
             builder.RegisterType<FunctionImpl>().As<IFunction>().InstancePerHttpRequest();
 
