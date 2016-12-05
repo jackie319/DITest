@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JK.Framework.Core;
 
-namespace DaoTwo
+namespace DaoTwo.Model
 {
-    public class Class1
+    public partial  class Function: BaseEntity
     {
     }
 }

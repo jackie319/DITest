@@ -36,7 +36,9 @@ namespace DITest
         public static void RegisterAutofac()
         {
             string connectionStr = System.Web.Configuration.WebConfigurationManager.
-                ConnectionStrings["AccountEntities"].ConnectionString; ;
+                ConnectionStrings["AccountEntities"].ConnectionString; 
+            string authorityStr= System.Web.Configuration.WebConfigurationManager.
+                ConnectionStrings["AuthorityEntities"].ConnectionString;
 
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
