@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BLL;
 using Dao.Model;
+using DaoTwo.Model;
 using JK.Framework.Core.Config;
 using log4net;
 using log4net.Config;
@@ -16,9 +17,12 @@ namespace DITest.Controllers
     public class TestController : Controller
     {
         private IAccountService AccouAccountService;
-        public TestController(IAccountService accountService)
+
+        private IFunction FunctionService;
+        public TestController(IAccountService accountService,IFunction functionService)
         {
             AccouAccountService = accountService;
+            FunctionService = functionService;
         }
 
         // GET: Test
@@ -93,7 +97,24 @@ namespace DITest.Controllers
             UserAccount account = new UserAccount();
             account.UserName = db;
             return View("Find", account);
-        } 
+        }
+
+
+        public ActionResult AddFunction()
+        {
+            Function function=new Function();
+            function.DisplayName = "测试一下";
+            function.ActionUrl = "1312";
+            function.DisplayOrder = 1;
+            function.Enable = false;
+            function.FunctionGuid = Guid.NewGuid();
+            function.FunctionName = "Function名称";
+            function.FunctionType = "23423";
+            function.ParentGuid=Guid.Empty;
+            function.TimeCreated=DateTime.Now;
+            FunctionService.Add(function);
+            return View(function);
+        }
   
 
       

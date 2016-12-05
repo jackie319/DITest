@@ -291,6 +291,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
     <Content Include="Views\Test\Find.cshtml" />
+    <Content Include="Views\Test\AddFunction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,6 +308,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{A5B965D7-88E5-475D-90FA-8092C0480DEE}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DaoTwo\DaoTwo.csproj">
+      <Project>{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}</Project>
+      <Name>DaoTwo</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dao\Dao.csproj">
       <Project>{D00BF91F-AAF4-4FAE-B42D-7F0488AD4668}</Project>

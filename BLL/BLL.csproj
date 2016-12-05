@@ -57,10 +57,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountServiceImpl.cs" />
+    <Compile Include="FunctionImpl.cs" />
     <Compile Include="IAccountService.cs" />
+    <Compile Include="IFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DaoTwo\DaoTwo.csproj">
+      <Project>{FAD4C1FA-3B35-40B6-8B0C-A4D95364D4A4}</Project>
+      <Name>DaoTwo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dao\Dao.csproj">
       <Project>{D00BF91F-AAF4-4FAE-B42D-7F0488AD4668}</Project>
       <Name>Dao</Name>

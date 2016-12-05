@@ -11,8 +11,12 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
+using Autofac.Core;
 using Autofac.Integration.Mvc;
 using BLL;
+using Dao.Model;
+using DaoTwo.Model;
+using JK.Framework.Core.Caching;
 using JK.Framework.Core.Data;
 using JK.Framework.Data;
 using log4net.Config;
@@ -49,9 +53,28 @@ namespace DITest
             //   .AsImplementedInterfaces();
 
             //JKFramework
-            RegisterAutofacForJK.RegisterAutofacForJKFramework(builder,connectionStr);
-            builder.RegisterType<AccountServiceImpl>().As<IAccountService>().InstancePerHttpRequest(); //mvc
+            // RegisterAutofacForJK.RegisterAutofacForJKFramework(builder,connectionStr);
 
+            builder.Register<IDbContext>(c => new JKObjectContext(connectionStr))
+                  .Named<IDbContext>("accountEntity").InstancePerLifetimeScope();
+
+            builder.Register<IDbContext>(c => new JKObjectContext(authorityStr))
+               .Named<IDbContext>("authorityEntity").InstancePerLifetimeScope();
+
+
+            builder.RegisterType<EfRepository<UserAccount>>()
+                .As<IRepository<UserAccount>>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("accountEntity"))
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<EfRepository<Function>>()
+               .As<IRepository<Function>>()
+               .WithParameter(ResolvedParameter.ForNamed<IDbContext>("authorityEntity"))
+               .InstancePerLifetimeScope();
+            builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().SingleInstance();
+            builder.RegisterType<DbContextGetter>().As<IDbContextGetter>().SingleInstance();
+            builder.RegisterType<AccountServiceImpl>().As<IAccountService>().InstancePerHttpRequest(); //mvc
+            builder.RegisterType<FunctionImpl>().As<IFunction>().InstancePerHttpRequest();
 
             #endregion
             // then

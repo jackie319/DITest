@@ -25,10 +25,10 @@ namespace BLL
         //    UserAccountRepository =new EfRepository<UserAccount>(DbContext);
         //}
         private const string PRODUCTS_BY_ID_KEY = "Nop.product.id-{0}";
-        public AccountServiceImpl(IRepository<UserAccount> useraccountRepository, IDbContext dbContext,ICacheManager cacheManager)
+        public AccountServiceImpl(IRepository<UserAccount> useraccountRepository, IDbContextGetter dbContext,ICacheManager cacheManager)
         {
             UserAccountRepository = useraccountRepository;
-            DbContext = dbContext;
+            DbContext = dbContext.GetByName<IDbContext>("accountEntity");
             CacheManager = cacheManager;
         }
         public void Add(UserAccount account)
